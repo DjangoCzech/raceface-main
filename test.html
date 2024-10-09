@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test tlacitek</title>
+    <style>
+      body {
+        font-family: "Press Start 2P", monospace;
+        font-smooth: never;
+        height: 98vh;
+      }
+
+      #text {
+        width: 100px;
+        height: 100px;
+        background-color: grey;
+        border: solid 1px black;
+        text-align: center;
+        line-height: 100px;
+        font-size: larger;
+      }
+
+      #game {
+        position: relative;
+        margin: 0 auto;
+        overflow: hidden;
+        background: #222;
+        user-select: none;
+        transition: opacity 10s;
+        width: 800px;
+        height: 500px;
+        display: block;
+      }
+      #road {
+        transition: opacity 2s;
+        transition-timing-function: steps(8, end);
+      }
+      #road * {
+        position: absolute;
+        image-rendering: pixelated;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game">
+      <div id="road">
+        <div id="cloud"></div>
+        <div id="hero"></div>
+      </div>
+
+      <div id="hud">
+        <span id="time" class="topUI">0</span>
+        <span id="score" class="topUI">0</span>
+        <span id="lap" class="topUI">0'00"000</span>
+        <span id="tacho">0</span>
+      </div>
+
+      <div id="home">
+        <h1>Dash</h1>
+        <p id="text"></p>
+
+        <div id="highscore"></div>
+      </div>
+    </div>
+
+    <div id="controls">
+      <span><span>C</span>insert coin</span>
+      <span><span>M</span>mute</span>
+      <span><span>&lt;</span><span>&gt;</span>move</span>
+      <span><span>&lt;</span><span>&gt;</span>accelerate</span>
+    </div>
+    <div id="text" class="text">LEFT</div>
+  </body>
+  <script>
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        document.getElementById("text").innerHTML = "LEFT";
+      } else if (event.key === "ArrowRight") {
+        document.getElementById("text").innerHTML = "RIGHT";
+      } else if (event.key === "ArrowUp") {
+        document.getElementById("text").innerHTML = "UP";
+      } else if (event.key === "ArrowDown") {
+        document.getElementById("text").innerHTML = "DOWN";
+      }
+    });
+  </script>
+</html>
